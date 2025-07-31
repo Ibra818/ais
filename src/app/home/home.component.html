@@ -1,15 +1,72 @@
 <main>
-    <nav>
+    <!-- Navbar desktop -->
+    <nav class="desktop-nav">
         <div class="logo">
             <img src="./assets/ais.png" alt="AIS Logo">
         </div>
-        <ul class="nav-list">
+        
+        <!-- Menu desktop -->
+        <ul class="nav-list desktop-menu">
             <li><a href="#">Accueil</a></li>
             <li><a href="#destinations">Destinations</a></li>
             <li><a href="#voyages-realises">Voyages réalisés</a></li>
             <li><a href="#contact">Nous contacter </a></li>
         </ul>
     </nav>
+    
+    <!-- Navbar mobile -->
+    <nav class="mobile-nav">
+        <div class="logo">
+            <img src="./assets/ais.png" alt="AIS Logo">
+        </div>
+        
+        <!-- Bouton hamburger pour mobile -->
+        <button class="hamburger-btn" (click)="toggleMobileMenu()" [class.active]="isMobileMenuOpen">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+    
+    <!-- Menu mobile popup -->
+    <div class="mobile-menu-overlay" [class.active]="isMobileMenuOpen" (click)="closeMobileMenu()"></div>
+    <div class="mobile-menu" [class.active]="isMobileMenuOpen">
+        <div class="mobile-menu-header">
+            <div class="mobile-logo">
+                <img src="./assets/ais.png" alt="AIS Logo">
+                <span>AIS Travel</span>
+            </div>
+            <button class="close-btn" (click)="closeMobileMenu()">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+        <ul class="mobile-nav-list">
+            <li><a href="#" (click)="closeMobileMenu()">Accueil</a></li>
+            <li><a href="#destinations" (click)="closeMobileMenu()">Destinations</a></li>
+            <li><a href="#voyages-realises" (click)="closeMobileMenu()">Voyages réalisés</a></li>
+            <li><a href="#contact" (click)="closeMobileMenu()">Nous contacter</a></li>
+        </ul>
+        <div class="mobile-menu-footer">
+            <div class="mobile-contact-info">
+                <div class="contact-item">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 5A2 2 0 015 3H8.28C8.7 3 9.08 3.28 9.2 3.68L10.2 7.26C10.32 7.66 10.16 8.1 9.8 8.36L8.5 9.33C9.25 11.1 10.9 12.75 12.67 13.5L13.64 12.2C13.9 11.84 14.34 11.68 14.74 11.8L18.32 12.8C18.72 12.92 19 13.3 19 13.72V17C19 19.21 17.21 21 15 21C8.93 21 3 15.07 3 9V5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>+33 1 23 45 67 89</span>
+                </div>
+                <div class="contact-item">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>contact&#64;ais-travel.com</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <header class="hero-header">
         <div class="hero-background">
             <div class="hero-overlay"></div>

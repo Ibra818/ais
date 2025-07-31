@@ -70,6 +70,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   contactForm: FormGroup;
   isSubmitting = false;
   submitMessage = '';
+  isMobileMenuOpen = false;
 
   constructor(
     private renderer: Renderer2,
@@ -378,5 +379,21 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
       }
     }
     return '';
+  }
+
+  // Méthodes pour le menu mobile
+  toggleMobileMenu(): void {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+    // Empêcher le scroll du body quand le menu est ouvert
+    if (this.isMobileMenuOpen) {
+      document.body.classList.add('menu-open');
+    } else {
+      document.body.classList.remove('menu-open');
+    }
+  }
+
+  closeMobileMenu(): void {
+    this.isMobileMenuOpen = false;
+    document.body.classList.remove('menu-open');
   }
 }

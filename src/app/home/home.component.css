@@ -85,13 +85,11 @@
     max-width: 100%;
     height: auto;
     border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
 }
 
 .hero-text .img img:hover {
     transform: scale(1.02);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
 }
 
 /* Styles pour le contenu du hero */
@@ -115,7 +113,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(30, 58, 138, 0.9);
+    background: #ffffff;
     box-shadow: 0 4px 15px rgba(30, 58, 138, 0.9);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
@@ -3989,19 +3987,79 @@ main #destinations .card .card-item.tunisie {
     }
     
     .ticket-hero {
-        max-width: 95%;
-        width: 95%;
-        margin: 0 auto;
-        transform: none; /* Pas d'effet 3D sur mobile */
-        border-radius: 15px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        transform: none;
+        border-radius: 10px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
         box-sizing: border-box;
         overflow: hidden;
+        height: auto;
+        max-height: 65vh;
     }
     
     .ticket-hero:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        transform: none;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+    
+    .ticket-content {
+        padding: 1rem;
+        max-height: 60vh;
+        overflow-y: auto;
+    }
+    
+    .ticket-details {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .detail-row {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        padding: 0.5rem;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        min-height: auto;
+    }
+    
+    .detail-label {
+        font-size: 0.7rem;
+        color: rgba(255, 255, 255, 0.7);
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 0.25rem;
+    }
+    
+    .detail-value {
+        font-size: 0.85rem;
+        color: #ffffff;
+        font-weight: 600;
+        word-break: break-word;
+        line-height: 1.2;
+    }
+    
+    .ticket-qr {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0.75rem;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        margin-top: 0.75rem;
+    }
+    
+    .ticket-qr svg {
+        width: 50px;
+        height: 50px;
+        color: #ffffff;
     }
     
     .ticket-header {
@@ -4177,12 +4235,53 @@ main #destinations .card .card-item.tunisie {
     }
     
     .ticket-hero {
-        max-width: 98%;
-        width: 98%;
-        margin: 0 auto;
-        border-radius: 12px;
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
         box-sizing: border-box;
+        max-height: 60vh;
+    }
+    
+    .ticket-content {
+        padding: 0.75rem;
+        max-height: 50vh;
+        overflow-y: auto;
+    }
+    
+    .ticket-details {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.4rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .detail-row {
+        padding: 0.4rem;
+        border-radius: 6px;
+        min-height: auto;
+    }
+    
+    .detail-label {
+        font-size: 0.65rem;
+        margin-bottom: 0.2rem;
+    }
+    
+    .detail-value {
+        font-size: 0.8rem;
+        line-height: 1.1;
+    }
+    
+    .ticket-qr {
+        padding: 0.5rem;
+        border-radius: 8px;
+        margin-top: 0.5rem;
+    }
+    
+    .ticket-qr svg {
+        width: 40px;
+        height: 40px;
     }
     
     .ticket-header {

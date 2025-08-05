@@ -4008,6 +4008,7 @@ main #destinations .card .card-item.tunisie {
         padding: 1rem;
         max-height: 60vh;
         overflow-y: auto;
+        color:black;
     }
     
     .ticket-details {
@@ -4030,7 +4031,7 @@ main #destinations .card .card-item.tunisie {
     
     .detail-label {
         font-size: 0.7rem;
-        color: rgba(255, 255, 255, 0.7);
+        color: black;
         font-weight: 500;
         text-transform: uppercase;
         letter-spacing: 0.5px;
@@ -4039,7 +4040,7 @@ main #destinations .card .card-item.tunisie {
     
     .detail-value {
         font-size: 0.85rem;
-        color: #ffffff;
+        color: black;
         font-weight: 600;
         word-break: break-word;
         line-height: 1.2;
@@ -4248,6 +4249,7 @@ main #destinations .card .card-item.tunisie {
         padding: 0.75rem;
         max-height: 50vh;
         overflow-y: auto;
+        color: black;
     }
     
     .ticket-details {

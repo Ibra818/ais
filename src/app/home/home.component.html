@@ -54,14 +54,14 @@
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M3 5A2 2 0 015 3H8.28C8.7 3 9.08 3.28 9.2 3.68L10.2 7.26C10.32 7.66 10.16 8.1 9.8 8.36L8.5 9.33C9.25 11.1 10.9 12.75 12.67 13.5L13.64 12.2C13.9 11.84 14.34 11.68 14.74 11.8L18.32 12.8C18.72 12.92 19 13.3 19 13.72V17C19 19.21 17.21 21 15 21C8.93 21 3 15.07 3 9V5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
-                    <span>+33 1 23 45 67 89</span>
+                    <span>+223 70 17 58 58 / 68 04 13 13 / 44 94 25 48</span>
                 </div>
                 <div class="contact-item">
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
-                    <span>contact&#64;ais-travel.com</span>
+                    <span>info&#64;agencedeservicesinternational</span>
                 </div>
             </div>
         </div>
@@ -183,6 +183,69 @@
                  <img src="/assets/image.png" alt="">
             </div>
 
+            <!-- Slider d'équipe redesigné -->
+            <section id="team" class="team-section-redesign">
+                <div class="team-header-redesign">
+                    <h2>Notre Équipe d'Experts</h2>
+                    <p>Des professionnels passionnés à votre service</p>
+                </div>
+                
+                <div class="team-slider-redesign" #teamSlider>
+                    <div class="team-container-redesign">
+                        <div class="team-slide-redesign" *ngFor="let member of teamMembers; let i = index" 
+                             [class.active]="i === currentTeamSlide">
+                            <div class="team-member-card-redesign">
+                                <div class="member-avatar">
+                                    <img [src]="member.image" [alt]="member.name" 
+                                         onerror="this.src='./assets/ais.png'">
+                                    <div class="avatar-border"></div>
+                                </div>
+                                <div class="member-content">
+                                    <h3 class="member-name">{{ member.name }}</h3>
+                                    <p class="member-position">{{ member.position }}</p>
+                                    <div class="member-overlay-redesign" [class.visible]="member.showInfo">
+                                        <p class="member-description">{{ member.description }}</p>
+                                        <div class="member-skills-redesign">
+                                            <!-- <span *ngFor="let skill of member.skills" class="skill-badge">{{ skill }}</span> -->
+                                        </div>
+                                        <!-- <div class="member-contact-redesign">
+                                            <a *ngIf="member.email" [href]="'mailto:' + member.email" class="contact-btn">
+                                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="2"/>
+                                                    <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2"/>
+                                                </svg>
+                                            </a>
+                                            <a *ngIf="member.phone" [href]="'tel:' + member.phone" class="contact-btn">
+                                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M3 5A2 2 0 015 3H8.28C8.7 3 9.08 3.28 9.2 3.68L10.2 7.26C10.32 7.66 10.16 8.1 9.8 8.36L8.5 9.33C9.25 11.1 10.9 12.75 12.67 13.5L13.64 12.2C13.9 11.84 14.34 11.68 14.74 11.8L18.32 12.8C18.72 12.92 19 13.3 19 13.72V17C19 19.21 17.21 21 15 21C8.93 21 3 15.07 3 9V5Z" stroke="currentColor" stroke-width="2"/>
+                                                </svg>
+                                            </a>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-navigation-redesign">
+                        <!-- <button class="team-nav-btn-redesign prev-btn" (click)="previousTeamSlide()" [disabled]="currentTeamSlide === 0">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <polyline points="15,18 9,12 15,6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <button class="team-nav-btn-redesign next-btn" (click)="nextTeamSlide()" [disabled]="currentTeamSlide >= teamMembers.length - getSlidesPerView()">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <polyline points="9,18 15,12 9,6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button> -->
+                    </div>
+                    
+                    <div class="team-progress-bar">
+                        <div class="progress-fill" [style.width.%]="(currentTeamSlide + 1) / teamMembers.length * 100"></div>
+                    </div>
+                </div>
+            </section>
+
             <div class="services-showcase">
                 <div class="service-pillar">
                     <div class="pillar-icon">
@@ -259,7 +322,7 @@
 
             <div class="company-stats">
                 <div class="stat-counter">
-                    <div class="stat-number" data-target="15000">0</div>
+                    <div class="stat-number" data-target="15000">+100</div>
                     <div class="stat-label">Clients Satisfaits</div>
                 </div>
                 <div class="stat-counter">
@@ -268,8 +331,8 @@
                 </div>
                
                 <div class="stat-counter">
-                    <div class="stat-number" data-target="24">0</div>
-                    <div class="stat-label">Support 24h/7j</div>
+                    <div class="stat-number" data-target="24">Support 24h/7j</div>
+                    <div class="stat-label"></div>
                 </div>
             </div>
 

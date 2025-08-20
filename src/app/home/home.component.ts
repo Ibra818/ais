@@ -72,6 +72,34 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   submitMessage = '';
   isMobileMenuOpen = false;
 
+  // Team slider properties
+  currentTeamSlide = 0;
+  teamAutoSlideInterval: any;
+  isTeamSliderPaused = false;
+  teamMembers = [
+    {
+      name: 'Gouro Diallo',
+      position: 'Directrice Générale',
+      description: 'Experte en gestion d\'entreprise avec plus de 15 ans d\'expérience dans le secteur des services internationaux.',
+      image: './assets/equipe.jpg',
+      showInfo: true
+    },
+    {
+      name: 'Ibrahim Dolo',
+      position: 'Chargé de transferts d\'argent',
+      description: 'Spécialiste des voyages religieux et culturels, organisateur de pèlerinages depuis 10 ans.',
+      image: './assets/equipe9.jpg',
+      showInfo: true
+    },
+    {
+      name: 'Anna Keita',
+      position: 'Agent Commerciale',
+      description: 'Experte en services financiers internationaux et transferts d\'argent.',
+      image: './assets/equipe6.jpg',
+      showInfo: true
+    }
+  ];
+
   constructor(
     private renderer: Renderer2,
     private formBuilder: FormBuilder,
@@ -90,10 +118,28 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   ngOnInit(): void {
     // Initialiser le slider automatique pour les voyages réalisés
     this.startAutoSlider();
+    
+    // Initialiser le slider d'équipe automatique
+    this.startTeamAutoSlider();
+    
+    // Ajouter un listener pour le redimensionnement
+    if (typeof window !== 'undefined') {
+      window.addEventListener('resize', () => {
+        this.validateAndUpdateSlider();
+      });
+    }
   }
 
   ngOnDestroy(): void {
-
+    // Nettoyer les listeners et intervalles
+    if (this.teamAutoSlideInterval) {
+      clearInterval(this.teamAutoSlideInterval);
+    }
+    if (typeof window !== 'undefined') {
+      window.removeEventListener('resize', () => {
+        this.validateAndUpdateSlider();
+      });
+    }
   }
 
   ngAfterViewInit(): void {
@@ -395,5 +441,123 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   closeMobileMenu(): void {
     this.isMobileMenuOpen = false;
     document.body.classList.remove('menu-open');
+  }
+
+  // Team slider methods
+  showMemberInfo(index: number): void {
+    this.teamMembers[index].showInfo = true;
+    this.pauseTeamAutoSlider();
+  }
+
+  hideMemberInfo(index: number): void {
+    this.teamMembers[index].showInfo = false;
+    this.resumeTeamAutoSlider();
+  }
+
+  startTeamAutoSlider(): void {
+    this.teamAutoSlideInterval = setInterval(() => {
+      if (!this.isTeamSliderPaused) {
+        this.nextTeamSlideAuto();
+      }
+    }, 4000); // Change toutes les 4 secondes
+  }
+
+  pauseTeamAutoSlider(): void {
+    this.isTeamSliderPaused = true;
+  }
+
+  resumeTeamAutoSlider(): void {
+    this.isTeamSliderPaused = false;
+  }
+
+  nextTeamSlideAuto(): void {
+    const slidesPerView = this.getSlidesPerView();
+    const maxSlide = Math.max(0, this.teamMembers.length - slidesPerView);
+    if (this.currentTeamSlide < maxSlide) {
+      this.currentTeamSlide++;
+    } else {
+      this.currentTeamSlide = 0; // Retour au début
+    }
+    this.updateTeamSliderPosition();
+  }
+
+  nextTeamSlide(): void {
+    const slidesPerView = this.getSlidesPerView();
+    const maxSlide = Math.max(0, this.teamMembers.length - slidesPerView);
+    if (this.currentTeamSlide < maxSlide) {
+      this.currentTeamSlide++;
+      this.updateTeamSliderPosition();
+    }
+  }
+
+  previousTeamSlide(): void {
+    if (this.currentTeamSlide > 0) {
+      this.currentTeamSlide--;
+      this.updateTeamSliderPosition();
+    }
+  }
+
+  goToTeamSlide(index: number): void {
+    const slidesPerView = this.getSlidesPerView();
+    const maxSlide = Math.max(0, this.teamMembers.length - slidesPerView);
+    this.currentTeamSlide = Math.min(Math.max(0, index), maxSlide);
+    this.updateTeamSliderPosition();
+  }
+
+  getSlidesPerView(): number {
+    if (typeof window !== 'undefined') {
+      const width = window.innerWidth;
+      
+      // Limiter à maximum 3 éléments
+      if (width <= 480) return 1;
+      if (width <= 768) return 2;
+      return 3; // Maximum 3 éléments pour tous les écrans
+    }
+    return 3;
+  }
+
+  private updateTeamSliderPosition(): void {
+    const container = document.querySelector('.team-container-redesign') as HTMLElement;
+    if (container) {
+      const slideWidth = this.getSlideWidth();
+      const gap = this.getGapWidth();
+      const translateX = -(this.currentTeamSlide * (slideWidth + gap));
+      container.style.transform = `translateX(${translateX}px)`;
+    }
+  }
+
+  private getSlideWidth(): number {
+    if (typeof window !== 'undefined') {
+      const width = window.innerWidth;
+      if (width <= 360) return 160;
+      if (width <= 480) return 260;
+      if (width <= 768) return 300;
+      if (width <= 1024) return 350;
+      return 380;
+    }
+    return 380;
+  }
+
+  private getGapWidth(): number {
+    if (typeof window !== 'undefined') {
+      const width = window.innerWidth;
+      if (width <= 480) return 16;
+      if (width <= 768) return 24;
+      if (width <= 1024) return 32;
+      return 40;
+    }
+    return 40;
+  }
+
+  private validateAndUpdateSlider(): void {
+    // Valider que le slide actuel est dans les limites après redimensionnement
+    const slidesPerView = this.getSlidesPerView();
+    const maxSlide = Math.max(0, this.teamMembers.length - slidesPerView);
+    
+    if (this.currentTeamSlide > maxSlide) {
+      this.currentTeamSlide = maxSlide;
+    }
+    
+    this.updateTeamSliderPosition();
   }
 }

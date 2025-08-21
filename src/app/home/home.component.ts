@@ -79,8 +79,8 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   teamMembers = [
     {
       name: 'Gouro Diallo',
-      position: 'Directrice Générale',
-      description: 'Experte en gestion d\'entreprise avec plus de 15 ans d\'expérience dans le secteur des services internationaux.',
+      position: 'Gérant',
+      description: 'Expert en gestion d\'entreprise avec plus de 15 ans d\'expérience dans le secteur des services internationaux.',
       image: './assets/equipe.jpg',
       showInfo: true
     },

@@ -94,10 +94,12 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     {
       name: 'Anna Keita',
       position: 'Agent Commerciale',
-      description: 'Spécialiste des voyages religieux et culturels, organisateur de pèlerinages depuis 10 ans. ',
+      description: 'S\'occupe de negociations pour vous faire les meilleures offres et sera l\'ecoute de besoins. ',
       image: './assets/equipe6.jpg',
       showInfo: true
-    }
+    },
+    
+    
   ];
 
   constructor(

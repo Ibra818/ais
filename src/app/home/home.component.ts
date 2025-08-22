@@ -87,14 +87,14 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     {
       name: 'Ibrahim Dolo',
       position: 'Chargé de transferts d\'argent',
-      description: 'Spécialiste des voyages religieux et culturels, organisateur de pèlerinages depuis 10 ans.',
+      description: 'Expert en services financiers internationaux et transferts d\'argent.',
       image: './assets/equipe9.jpg',
       showInfo: true
     },
     {
       name: 'Anna Keita',
       position: 'Agent Commerciale',
-      description: 'Experte en services financiers internationaux et transferts d\'argent.',
+      description: 'Spécialiste des voyages religieux et culturels, organisateur de pèlerinages depuis 10 ans. ',
       image: './assets/equipe6.jpg',
       showInfo: true
     }

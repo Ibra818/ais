@@ -80,7 +80,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     {
       name: 'Gouro Diallo',
       position: 'Gérant',
-      description: 'Expert en gestion d\'entreprise avec plus de 15 ans d\'expérience dans le secteur des services internationaux.',
+      description: 'Expert en gestion d\'entreprise dans le secteur des services internationaux.',
       image: './assets/equipe.jpg',
       showInfo: true
     },
@@ -182,6 +182,11 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
         slide.style.animationPlayState = 'running';
       });
     });
+
+    // Initialiser la position du slider d'équipe
+    setTimeout(() => {
+      this.updateTeamSliderPosition();
+    }, 100);
 
   }
 
@@ -523,7 +528,17 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     if (container) {
       const slideWidth = this.getSlideWidth();
       const gap = this.getGapWidth();
-      const translateX = -(this.currentTeamSlide * (slideWidth + gap));
+      const slidesPerView = this.getSlidesPerView();
+      
+      // Centrer le premier élément sur mobile (quand slidesPerView = 1)
+      let translateX = -(this.currentTeamSlide * (slideWidth + gap));
+      
+      if (slidesPerView === 1 && typeof window !== 'undefined') {
+        const containerWidth = window.innerWidth - 40; // padding 20px de chaque côté
+        const offset = (containerWidth - slideWidth) / 2;
+        translateX += offset;
+      }
+      
       container.style.transform = `translateX(${translateX}px)`;
     }
   }

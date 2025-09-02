@@ -115,6 +115,12 @@
     max-width: 100%;
     gap: 1.5rem;
 }
+.logos-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
 .desktop-nav .logo,
 .mobile-nav .logo{
     width: 65px;
@@ -132,6 +138,13 @@
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     z-index: 2;
+}
+
+.iata-logo {
+    width: 55px !important;
+    height: 55px !important;
+    background: #ffffff !important;
+    border: 2px solid rgba(255, 255, 255, 0.8) !important;
 }
 
 .desktop-nav .logo:hover,
@@ -1216,6 +1229,10 @@ main .section1::before {
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     transition: all 0.3s ease;
+}
+
+.stat-counter:nth-child(3) .stat-number{
+    font-size: 1.5em;
 }
 
 .stat-counter:hover {
@@ -4761,6 +4778,15 @@ main #destinations .card .card-item.tunisie {
         height: 50px;
     }
     
+    .mobile-nav .iata-logo {
+        width: 40px !important;
+        height: 40px !important;
+    }
+    
+    .logos-container {
+        gap: 8px;
+    }
+    
     .hamburger-btn {
         display: flex;
     }
@@ -5292,6 +5318,7 @@ body.menu-open {
     
     .team-container-redesign {
         gap: 1.5rem;
+        margin: 0 0 0 400px;
     }
     
     .team-member-card-redesign {

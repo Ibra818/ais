@@ -84,18 +84,20 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
       image: './assets/equipe.jpg',
       showInfo: true
     },
-    {
-      name: 'Ibrahim Dolo',
-      position: 'Chargé de transferts d\'argent',
-      description: 'Expert en services financiers internationaux et transferts d\'argent.',
-      image: './assets/equipe9.jpg',
-      showInfo: true
-    },
+
     {
       name: 'Anna Keita',
       position: 'Agent Commerciale',
       description: 'S\'occupe de negociations pour vous faire les meilleures offres et sera l\'ecoute de besoins. ',
       image: './assets/equipe6.jpg',
+      showInfo: true
+    },
+    
+    {
+      name: 'Ibrahim Dolo',
+      position: 'Chargé de transferts d\'argent',
+      description: 'Expert en services financiers internationaux et transferts d\'argent.',
+      image: './assets/equipe9.jpg',
       showInfo: true
     },
     

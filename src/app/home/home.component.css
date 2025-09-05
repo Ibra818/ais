@@ -4955,10 +4955,12 @@ body.menu-open {
 .team-member-card-redesign {
     position: relative;
     width: 380px;
-    height: 450px;
+    height: 350px;
     background: rgba(255, 255, 255, 0.95);
     border-radius: 24px;
+    padding-top: 10%;
     padding: 2rem;
+    margin-top: 10%;
     box-shadow: 0 8px 32px rgba(30, 58, 138, 0.1);
     cursor: pointer;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -5247,7 +5249,11 @@ body.menu-open {
     
     .team-member-card-redesign {
         width: 350px;
-        height: 420px;
+        height: 320px;
+        display: flex; 
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
         padding: 1.5rem;
     }
     
@@ -5323,7 +5329,11 @@ body.menu-open {
     
     .team-member-card-redesign {
         width: 300px;
-        height: 400px;
+        height: 300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
         padding: 1.5rem;
     }
     
@@ -5421,7 +5431,11 @@ body.menu-open {
     
     .team-member-card-redesign {
         width: 260px;
-        height: 360px;
+        height: 270px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
         padding: 1rem;
     }
     
